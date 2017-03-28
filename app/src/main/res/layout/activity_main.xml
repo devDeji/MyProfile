@@ -36,22 +36,33 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/banner1" />
+                    android:src="@drawable/banner1"
+                    android:contentDescription="banner"/>
 
 
 
                 <!-- Round image -->
 
-                <com.alexzh.circleimageview.CircleImageView
-                    android:id="@+id/banar1"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                <!--<com.alexzh.circleimageview.CircleImageView-->
+                    <!--android:id="@+id/banar1"-->
+                    <!--android:layout_width="90dp"-->
+                    <!--android:layout_height="90dp"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:layout_marginTop="75dp"-->
+                    <!--android:adjustViewBounds="true"-->
+                    <!--android:src="@drawable/myphoto"-->
+                    <!--app:view_borderColor="#cccccc"-->
+                    <!--app:view_borderWidth="2dp" />-->
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/profile_image"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:src="@drawable/myphoto"
                     android:layout_gravity="center"
                     android:layout_marginTop="75dp"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/myphoto"
-                    app:view_borderColor="#cccccc"
-                    app:view_borderWidth="2dp" />
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="#f2f2f2"/>
 
 
             </FrameLayout>
@@ -70,7 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Fakhry Ikhsan Firdaus"
-                    android:textSize="22dp"
+                    android:textSize="22sp"
                     android:textColor="@color/title_color"
                     android:layout_gravity="center"/>
 
@@ -80,13 +91,13 @@
                     android:text="Brawijaya University, Indonesia"
                     android:layout_gravity="center"
                     android:textColor="@color/title_color"
-                    android:textSize="14dp"/>
+                    android:textSize="14sp"/>
 
                 <customfonts.MyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="--------"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_gravity="center"/>
@@ -95,13 +106,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Passionate with Mobile development"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:layout_gravity="center"/>
                 <customfonts.MyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tech Enthusiast"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:layout_gravity="center"/>
 
 
@@ -130,7 +141,7 @@
                 android:padding="10dp"
                 />
 
-            
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.1dp"
@@ -156,13 +167,13 @@
                         android:text="10"
                         android:textColor="@color/title_color"
                         android:textStyle="bold"
-                        android:textSize="18dp" />
+                        android:textSize="18sp" />
                     <customfonts.MyTextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
                         android:layout_weight="1"
                         android:text="Repositories"
-                        android:textSize="14dp"/>
+                        android:textSize="14sp"/>
 
                 </LinearLayout>
                 <View
@@ -185,13 +196,13 @@
                         android:text="2,080"
                         android:textColor="@color/title_color"
                         android:textStyle="bold"
-                        android:textSize="18dp" />
+                        android:textSize="18sp" />
                     <customfonts.MyTextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
                         android:layout_weight="1"
                         android:text="Followers"
-                        android:textSize="14dp"/>
+                        android:textSize="14sp"/>
 
                 </LinearLayout>
                 <View
@@ -214,13 +225,13 @@
                         android:text="144"
                         android:textColor="@color/title_color"
                         android:textStyle="bold"
-                        android:textSize="18dp" />
+                        android:textSize="18sp" />
                     <customfonts.MyTextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
                         android:layout_weight="1"
                         android:text="Following"
-                        android:textSize="14dp"/>
+                        android:textSize="14sp"/>
 
                 </LinearLayout>
 
@@ -249,12 +260,12 @@
                     android:layout_margin="10dp">
                     <customfonts.MyTextView
                         android:id="@+id/telpField"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text="081081081081"
                         android:textColor="@color/title_color"
                         android:textStyle="bold"
-                        android:textSize="18dp"
+                        android:textSize="18sp"
                         android:layout_weight="3"/>
                     <TextView
                         android:layout_width="wrap_content"
@@ -292,12 +303,12 @@
                     android:layout_margin="10dp">
                     <customfonts.MyTextView
                         android:id="@+id/fbField"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text="https://facebook.com/if.fakhry"
                         android:textColor="@color/title_color"
                         android:textStyle="bold"
-                        android:textSize="18dp"
+                        android:textSize="18sp"
                         android:layout_weight="3"/>
                     <TextView
                         android:layout_width="wrap_content"
@@ -335,12 +346,12 @@
                     android:layout_margin="10dp">
                     <customfonts.MyTextView
                         android:id="@+id/emailField"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text="fakhry@gmail.com"
                         android:textColor="@color/title_color"
                         android:textStyle="bold"
-                        android:textSize="18dp"
+                        android:textSize="18sp"
                         android:layout_weight="3"/>
                     <TextView
                         android:layout_width="wrap_content"

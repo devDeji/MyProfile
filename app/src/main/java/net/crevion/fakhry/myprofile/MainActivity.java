@@ -25,8 +25,10 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView shareBtn, callBtn, fbBtn, activity2;
     private TextView telpField, fbField, emailField, namaField;
+    private ImageView imgProfile;
     private Toolbar mToolbar;
     private int RESULTS_ACTIVITY = 1;
+    int IMAGE_PICKER_REQUEST;
 
 
     @Override
@@ -43,24 +45,34 @@ public class MainActivity extends AppCompatActivity {
         emailField = (TextView) findViewById(R.id.emailField);
         namaField = (TextView) findViewById(R.id.namaField);
 
+        imgProfile = (ImageView) findViewById(R.id.profile_image);
+        imgProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Toast.makeText(MainActivity.this, "Image view clicked", Toast.LENGTH_LONG).show();
+                Intent imageIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                imageIntent.setType("image/*");
+                startActivityForResult(imageIntent, IMAGE_PICKER_REQUEST);
+            }
+        });
 
-        Context context;
-        Bitmap bitmap= BitmapFactory.decodeResource(this.getResources(),
-                R.drawable.myphoto);
-
-        ImageView imgv = (ImageView) findViewById(R.id.banar1);
-
-        //  Bitmap bitmap = StringToBitMap(imgv);
-        Bitmap circleBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
-
-        BitmapShader shader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
-        Paint paint = new Paint();
-        paint.setShader(shader);
-        paint.setAntiAlias(true);
-        Canvas c = new Canvas(circleBitmap);
-        c.drawCircle(bitmap.getWidth() / 2, bitmap.getHeight() / 2, bitmap.getWidth() / 2, paint);
-
-        imgv.setImageBitmap(circleBitmap);
+//        Context context;
+//        Bitmap bitmap= BitmapFactory.decodeResource(this.getResources(),
+//                R.drawable.myphoto);
+//
+//        ImageView imgv = (ImageView) findViewById(R.id.banar1);
+//
+//        //  Bitmap bitmap = StringToBitMap(imgv);
+//        Bitmap circleBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+//
+//        BitmapShader shader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+//        Paint paint = new Paint();
+//        paint.setShader(shader);
+//        paint.setAntiAlias(true);
+//        Canvas c = new Canvas(circleBitmap);
+//        c.drawCircle(bitmap.getWidth() / 2, bitmap.getHeight() / 2, bitmap.getWidth() / 2, paint);
+//
+//        imgv.setImageBitmap(circleBitmap);
     }
 
     @Override
@@ -119,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if ((requestCode == RESULTS_ACTIVITY) && (resultCode == RESULT_OK)){
+            Log.v("Cekvalue", "edit ok");
             String nama = data.getStringExtra("nama");
             String telp = data.getStringExtra("telp");
             String link = data.getStringExtra("link");
@@ -133,6 +146,11 @@ public class MainActivity extends AppCompatActivity {
             Log.v("Cekvalue", "telp "+telp);
             Log.v("Cekvalue", "link "+link);
             Log.v("Cekvalue", "email "+email);
+        }
+        else if((requestCode == IMAGE_PICKER_REQUEST) && (resultCode == RESULT_OK)){
+            Log.v("Cekvalue", "image ok");
+            Uri returnedImageURI = data.getData();
+            imgProfile.setImageURI(returnedImageURI);
         }
     }
 
